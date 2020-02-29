@@ -1,0 +1,48 @@
+DEMARRER UN PROJET MVC
+
+1. Charger la db sur MysqlWorkBench
+2. Copier/coller un mvc vierge (app, noyau et www)
+3. Modifier les paramètres dans ./app/config/parametres.php
+   Nom de la db, nom des zones, ...
+4. Intégration du template dans ./app/vues/templates/defaut.php
+   Intégration des assets (ressources clients: css, js, images, ...) dans www
+5. Intégration des zones dynamiques dans ce template
+   Identification des zones dynamiques:
+   		Parties du code HTML qui changent à chaque page
+6. Décomposition du template en partials
+7. Tester dans le navigateur
+--------------------------------------------------
+8. Mise en place de la route par défaut dans le ./app/routeur.php
+   PATTERN: /
+   CTRL: pagesControleur
+   ACTION: show
+9. Créer le CTRL avec son namespace
+10 Créer l'action du CTRL
+		- Va chercher des infos dans le modèle
+		- Charge une vue dans les zones dynamiques
+11. Créer le modèle avec son namespace et la fonction adéquate
+12. Créer la vue correspondante
+---------------------------------------------------
+13. Intégration du menu dynamique directement depuis le template 
+    (./app/vues/templates/partials/_nav.php)
+    > On fait appel à l'action menu du CTRL pages
+14. Le menuAction va chercher les pages 
+    puis charge directement la vue menu
+15. Mettre en place les liens du menu: ?pageId=x
+16. Créer la nouvelle route du détail d'une page
+    PATTERN: /?pageId=x
+    CTRL: pagesControleur
+    ACTION: show
+----------------------------------------------------
+17. Intégrer des contenus complémentaires sur les pages
+	Mettre un if ou un switch dans ./app/vues/pages/show.php
+	Inclure le CTRL et lancer l'action voulue 
+	Ex: liste des posts (indexAction) si l'id de la page est 1
+
+
+
+
+
+
+
+
